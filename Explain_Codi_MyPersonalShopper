@@ -1,0 +1,60 @@
+Base De Dades: 
+El codi proporcionat es basa en l'ús de MongoDB, una base de dades NoSQL, per gestionar dades. L'estructura del codi està resumida i organitzada de manera que faciliti la creació i gestió de bases de dades. En particular, s'inclou una carpeta que conté dos arxius d'exemple destinats a la creació de bases de dades MongoDB.
+El codi, està escrit en JavaScript utilitzant el controlador oficial de MongoDB. Només requereix la seva execució en NoSQLBooster, per exemple, per al seu ús.
+
+
+Codi Contoladora.py: 
+
+Aquest programa és una aplicació web desenvolupada en Python amb el framework Flask i utilitza una base de dades MongoDB per gestionar les dades dels usuaris. El codi està organitzat en diverses rutes que defineixen diferents pàgines de l'aplicació.
+
+Connexió amb la base de dades: S'estableix una connexió amb la base de dades MongoDB mitjançant una instància de la classe DataBase (presumiblement definida en un fitxer separat).
+
+Funcions de validació:
+Hi ha diverses funcions (validate_email, validate_size, validate_shoe, i validate_password) que serveixen per validar diferents camps del formulari de registre, com ara l'email, la talla, la contrasenya, etc.
+
+Rutes de l'aplicació:
+/: Pàgina principal que mostra una plantilla anomenada index.html.
+/singin: Pàgina de inici de sessió que gestiona el registre dels usuaris i redirigeix a les pàgines corresponents segons el tipus d'usuari (Personal Shopper o Usuari).
+/registration: Pàgina de registre que recopila la informació del formulari i la valida abans de registrar l'usuari a la base de dades.
+/user_template i /ps_template: Pàgines que mostren les plantilles per als usuaris i els Personal Shoppers, respectivament.
+/chat, /asesoria, /aboutus, /profile, /PsUsers, i /products: Altres pàgines de l'aplicació que mostren diferents continguts o funcionalitats.
+/chat - es de ambdos tant user i Personal Shopper
+/assesoria /profile /aboutus es nomes de Users
+/Products /Get_User es nomes de Personal Shopper
+
+Gestió de sessions:
+S'utilitza l'objecte session per emmagatzemar la informació de l'usuari durant la sessió.
+
+Codi DataBase.py:
+Aquest programa és una classe Python anomenada DataBase que proporciona una interfície per interactuar amb una base de dades MongoDB. 
+
+Inicialització:¡
+En el constructor __init__, s'estableix la connexió amb el servidor MongoDB local i es defineixen les bases de dades per als usuaris, Personal Shoppers (PS) i productes. A cada base de dades, s'associa una col·lecció específica.
+
+Registre d'Usuari:
+La funció register_user afegeix un nou usuari a la col·lecció 'users' de la base de dades 'users'. Retorna True si s'ha afegit correctament.
+
+Autenticació d'Usuari i PS:
+Les funcions find_user i find_ps comproven si les credencials proporcionades coincideixen amb les d'usuari o PS existents a les bases de dades corresponents.
+
+Verificació de l'Existència d'Usuari:
+La funció user_exists comprova si ja existeix un usuari amb la mateixa adreça de correu electrònic.
+
+Obtenció de la Informació de l'Usuari:
+La funció get_user_info recupera la informació d'un usuari a partir del seu correu electrònic.
+
+Obtenció d'Usuaris Associats a un PS:
+La funció get_ps_user retorna una llista d'usuaris associats a un PS específic.
+
+Obtenció de Productes amb Filtres Opcionals:
+La funció get_product retorna una llista de productes amb opcions de filtratge com ara nom del producte i marca.
+
+Obtenció de Ropa d'Usuari:
+La funció get_clothes retorna la informació de la roba associada a un usuari.
+
+Afegir un Article a la Ropa de l'Usuari:
+La funció Add_Item afegeix un article de roba a la col·lecció 'clothes' d'un usuari específic.
+
+Selecció d'Assessor de Personal Shopper (PS):
+La funció SelectPS selecciona un PS per a un usuari basant-se en la disponibilitat de PS i el nombre d'usuaris associats. Retorna el nom del PS seleccionat.
+
